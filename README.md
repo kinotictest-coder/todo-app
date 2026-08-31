@@ -97,3 +97,5 @@ client libraries and produces a binary that crashes on startup.
 (for example `packages/domain/index.ts`) before they produce any output.
 
 <!-- redeploy trigger: 2026-08-31T21:37:22Z -->
+
+<!-- redeploy trigger: 2026-08-31T21:41:54Z -->
