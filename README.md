@@ -95,3 +95,5 @@ client libraries and produces a binary that crashes on startup.
 
 `build` and `dev` need each package to have an entry point that bunup can find
 (for example `packages/domain/index.ts`) before they produce any output.
+
+<!-- redeploy trigger: 2026-08-31T21:37:22Z -->
