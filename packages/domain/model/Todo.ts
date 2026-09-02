@@ -18,9 +18,23 @@ export class Todo {
     // free-form priority label, e.g. 'low' | 'normal' | 'high' — kept as a keyword string
     priority: string = 'normal'
 
+    // id of the owning TodoList; '' means the default / inbox list
+    listId: string = ''
+
+    // ids of the Labels applied to this todo (keyword array, filterable)
+    labelIds: string[] = []
+
+    // sort key within a list; fractional so items can be reordered without renumbering
+    @Precision(PrecisionType.DOUBLE)
+    position: number = 0
+
     // epoch millis; null until a due date is set
     @Precision(PrecisionType.LONG)
     dueDate: number | null = null
+
+    // epoch millis; set when `completed` flips to true, cleared when it flips back
+    @Precision(PrecisionType.LONG)
+    completedAt: number | null = null
 
     // epoch millis, set on creation
     @NotNull

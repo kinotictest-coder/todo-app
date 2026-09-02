@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "name": "Todo",
+  "name": "TodoList",
   "namespace": "todo-app",
   "decorators": [
     {
@@ -22,7 +22,7 @@
       }
     },
     {
-      "name": "title",
+      "name": "name",
       "decorators": [
         {
           "type": "NotNull"
@@ -31,6 +31,12 @@
           "type": "Text"
         }
       ],
+      "type": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "color",
       "type": {
         "type": "string"
       }
@@ -47,7 +53,13 @@
       }
     },
     {
-      "name": "completed",
+      "name": "position",
+      "type": {
+        "type": "double"
+      }
+    },
+    {
+      "name": "archived",
       "decorators": [
         {
           "type": "NotNull"
@@ -55,45 +67,6 @@
       ],
       "type": {
         "type": "boolean"
-      }
-    },
-    {
-      "name": "priority",
-      "type": {
-        "type": "string"
-      }
-    },
-    {
-      "name": "listId",
-      "type": {
-        "type": "string"
-      }
-    },
-    {
-      "name": "labelIds",
-      "type": {
-        "type": "array",
-        "contains": {
-          "type": "string"
-        }
-      }
-    },
-    {
-      "name": "position",
-      "type": {
-        "type": "double"
-      }
-    },
-    {
-      "name": "dueDate",
-      "type": {
-        "type": "long"
-      }
-    },
-    {
-      "name": "completedAt",
-      "type": {
-        "type": "long"
       }
     },
     {
