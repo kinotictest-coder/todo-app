@@ -1,0 +1,28 @@
+{
+    "name": "@todo-app/app",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "type-check": "tsc --noEmit",
+        "type-check:vue": "vue-tsc --noEmit",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@kinotic-ai/core": "catalog:",
+        "@kinotic-ai/persistence": "catalog:",
+        "@todo-app/domain": "workspace:*",
+        "primeicons": "^7.0.0",
+        "primevue": "^4.5.5",
+        "@primevue/themes": "^4.5.4",
+        "vue": "^3.5.42"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^6.0.8",
+        "typescript": "^5.9.3",
+        "vite": "^7.3.6",
+        "vue-tsc": "^3.3.11"
+    }
+}

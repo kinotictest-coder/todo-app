@@ -1,0 +1,264 @@
+:root {
+	color-scheme: light dark;
+	--app-bg: #f4f6f9;
+	--app-surface: #ffffff;
+	--app-border: #e2e8f0;
+	--app-text-muted: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--app-bg: #0b1220;
+		--app-surface: #111a2c;
+		--app-border: #24314a;
+		--app-text-muted: #94a3b8;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	font-family:
+		ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	background: var(--app-bg);
+	color: inherit;
+}
+
+/* ---- app shell layout ---- */
+
+.shell {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.shell__topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.6rem 1rem;
+	background: var(--app-surface);
+	border-bottom: 1px solid var(--app-border);
+}
+
+.shell__brand {
+	font-weight: 700;
+	font-size: 1.05rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.shell__body {
+	display: grid;
+	grid-template-columns: 260px 1fr;
+	flex: 1;
+	min-height: 0;
+}
+
+.sidebar {
+	background: var(--app-surface);
+	border-right: 1px solid var(--app-border);
+	overflow-y: auto;
+	padding: 0.75rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.sidebar__section {
+	font-size: 0.72rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--app-text-muted);
+	margin: 0.9rem 0.5rem 0.35rem;
+}
+
+.nav-item {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	padding: 0.45rem 0.55rem;
+	border-radius: 6px;
+	cursor: pointer;
+	border: none;
+	background: transparent;
+	color: inherit;
+	width: 100%;
+	text-align: left;
+	font: inherit;
+}
+
+.nav-item:hover {
+	background: color-mix(in srgb, var(--app-border) 45%, transparent);
+}
+
+.nav-item--active {
+	background: color-mix(in srgb, var(--p-primary-color, #6366f1) 16%, transparent);
+	font-weight: 600;
+}
+
+.nav-item__count {
+	margin-left: auto;
+	font-size: 0.78rem;
+	color: var(--app-text-muted);
+}
+
+.dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	flex: none;
+}
+
+.pane {
+	overflow-y: auto;
+	padding: 1.25rem 1.5rem 3rem;
+	min-height: 0;
+}
+
+.pane__header {
+	display: flex;
+	align-items: baseline;
+	gap: 0.6rem;
+	margin-bottom: 1rem;
+}
+
+.pane__title {
+	font-size: 1.4rem;
+	font-weight: 700;
+	margin: 0;
+}
+
+.pane__count {
+	color: var(--app-text-muted);
+}
+
+.toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.todo-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	max-width: 760px;
+}
+
+.todo-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.7rem;
+	padding: 0.7rem 0.8rem;
+	background: var(--app-surface);
+	border: 1px solid var(--app-border);
+	border-radius: 8px;
+}
+
+.todo-item__main {
+	flex: 1;
+	min-width: 0;
+}
+
+.todo-item__title {
+	font-weight: 500;
+}
+
+.todo-item__title--done {
+	text-decoration: line-through;
+	color: var(--app-text-muted);
+}
+
+.todo-item__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+	margin-top: 0.35rem;
+	align-items: center;
+}
+
+.todo-item__desc {
+	font-size: 0.85rem;
+	color: var(--app-text-muted);
+	margin-top: 0.15rem;
+	white-space: pre-wrap;
+}
+
+.todo-item__actions {
+	display: flex;
+	gap: 0.15rem;
+	flex: none;
+}
+
+.empty {
+	color: var(--app-text-muted);
+	padding: 2rem 0;
+	text-align: center;
+}
+
+/* ---- login ---- */
+
+.login {
+	display: grid;
+	place-items: center;
+	height: 100%;
+	padding: 1rem;
+}
+
+.login__card {
+	width: 340px;
+}
+
+.login__form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+
+.field > label {
+	font-size: 0.85rem;
+	color: var(--app-text-muted);
+}
+
+.dialog-form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+	min-width: min(460px, 80vw);
+}
+
+.label-rows {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.label-row {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.grow {
+	flex: 1;
+}

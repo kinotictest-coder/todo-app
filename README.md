@@ -96,24 +96,20 @@ client libraries and produces a binary that crashes on startup.
 `build` and `dev` need each package to have an entry point that bunup can find
 (for example `packages/domain/index.ts`) before they produce any output.
 
-<!-- redeploy trigger: 2026-08-31T21:37:22Z -->
+## Web UI (`packages/ui/app`)
 
-<!-- redeploy trigger: 2026-08-31T21:41:54Z -->
+A Vue 3 + PrimeVue single-page app that talks to the deployed backend through the
+generated repositories (`Kinotic.use(PersistencePlugin)`), no bespoke API layer.
 
-<!-- redeploy trigger: 2026-08-31T22:34:47Z -->
+```bash
+cp packages/ui/app/.env.example packages/ui/app/.env.local   # point at your server
+bun --filter @todo-app/app run dev                           # http://localhost:5173
+```
 
-<!-- redeploy trigger: 2026-08-31T23:04:35Z -->
+Sign in with an application user created in the Kinotic portal (**Members**, scoped to
+this application). The platform injects `VITE_KINOTIC_HOST` / `VITE_KINOTIC_PORT` /
+`VITE_KINOTIC_USE_SSL` at deploy time; for local dev set them in `.env.local`.
 
-<!-- redeploy trigger: 2026-08-31T23:06:55Z -->
-
-<!-- redeploy trigger: 2026-08-31T23:08:21Z -->
-
-<!-- redeploy trigger: 2026-09-01T07:57:57Z -->
-
-<!-- redeploy trigger: 2026-09-02T07:53:49Z -->
-
-<!-- redeploy trigger: 2026-09-02T08:53:03Z -->
-
-<!-- redeploy trigger: 2026-09-02T20:32:26Z -->
-
-<!-- redeploy trigger: 2026-09-02T22:02:20Z -->
+`bun --filter @todo-app/app run type-check` runs `tsc` (Bun-compatible). Full
+single-file-component checking is `type-check:vue` (`vue-tsc`, needs Node). The platform
+does not host the built UI — deploy it wherever you serve static assets.
